@@ -57,6 +57,8 @@ def news(a):
             news.append(n)
             con_sp3 = BeautifulSoup(str(news), 'html.parser')
             news_text.append(con_sp3.get_text())
+            news_text = [s.strip('[\n') for s in news_text]
+            news_text = [s.strip('\n]') for s in news_text]
             time.sleep(randint(2,10))
     return tag2, news_text
     
